@@ -1,0 +1,122 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 imagebg parallax" data-overlay="3">
+            <div class="background-image-holder">
+                <img alt="background" th:src="@{/img/official-background.jpg}"/>
+            </div>
+            <div class="container pos-vertical-center">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <th:block th:if="${message}">
+                            <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                <div class="boxed boxed--sm bg--dark">
+                                    <span th:text="${message}"></span>
+                                </div>
+
+                            </div>
+                        </th:block>
+
+                        <h3>Миналото отмина, настоящето е сега, бъдещето си ти!</h3>
+
+                        <div style="margin-top: 80px;">
+                            <h1>Hack 30xTUES</h1>
+                        </div>
+
+                        <div style="margin-top: 60px;">
+                            <div>
+                                <h2>Old School</h2>
+                                <h2>New Technologies</h2>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 150px;">
+                            <h5>Лабораторен комплекс, София Тех Парк, 15-18 март</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg--secondary partners-1 space--sm" style="line-height: 10em;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="slider" data-items="5" data-timing="2000" data-arrows="true">
+                            <ul class="slides">
+                                <li class="sponsor slash">
+                                    <a><img alt="img" src="img/alpha.png"/></a>
+                                </li>
+                                <li class="sponsor alpha sap">
+                                    <a target="_blank" href="https://www.sap.com/bulgaria/index.html"><img alt="img" src="img/sponsor1.png" style="max-height: 8em;"/></a>
+                                </li>
+                                <li class="sponsor alpha" style="padding: 0 20px 0 0;">
+                                    <a target="_blank" href="https://www.facebook.com/SoftServeBulgaria/"><img alt="img" src="img/sponsor2.png"/></a>
+                                </li>
+                                <li class="sponsor alpha" style="padding: 0 20px;">
+                                    <a target="_blank" href="http://telebid-pro.com/"><img alt="img" src="img/sponsor3.png"/></a>
+                                </li>
+                                <li class="sponsor alpha" style="padding: 0 20px;">
+                                    <img alt="img" src="img/sponsor4.png"/>
+                                </li>
+                                <li class="sponsor slash" style="padding-left: 20px;">
+                                    <a><img alt="img" src="img/beta.png"/></a>
+                                </li>
+                                <li class="sponsor" style="padding: 0 20px;">
+                                    <a target="_blank" href="https://www.dopamine.bg/"><img class="beta" alt="img" src="img/sponsor5.png"/></a>
+                                </li>
+                                <li class="sponsor" style="padding: 0 20px;">
+                                    <a target="_blank" href="http://www.scalefocus.com/"><img class="beta" alt="img" src="img/sponsor6.png"/></a>
+                                </li>
+                                <li class="sponsor" style="padding: 0 20px;">
+                                    <a target="_blank" href="https://softuni.bg/"><img class="beta" alt="img" src="img/sponsor7.png"/></a>
+                                </li>
+                                <li class="sponsor slash" style="padding-left: 20px;">
+                                    <a><img alt="img" src="img/gamma.png"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="https://accedia.com/"><img class="gamma" alt="img" src="img/sponsor8.png" style="max-height: 5em; padding-bottom: 3%;"/></a>
+                                </li>
+                                <li class="sponsor" style="padding-right: 20px;">
+                                    <a target="_blank" href="http://asteasolutions.com/"><img class="gamma" alt="img" src="img/sponsor9.png"/></a>
+                                </li>
+                                <li class="sponsor" style="padding-right: 20px;">
+                                    <a target="_blank" href="https://www.nemetschek.bg/"><img class="gamma" alt="img" src="img/sponsor10.png"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="http://careersinfo.uber.com/sofia-engineering"><img class="gamma" alt="img" src="img/sponsor11.png" style="max-height: 10em; padding-top: 4%;"/></a>
+                                </li>
+                                <li class="sponsor slash" style="padding-left: 20px;">
+                                    <a><img alt="img" src="img/partners.png"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="https://www.facebook.com/SofiaTechPark/"><img class="partners" alt="img" src="img/partner5.png" style="max-height: 12em !important; padding-bottom: 8%;"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="https://initlab.org/"><img class="partners" alt="img" src="img/partner2.png" style="max-height: 7em !important;"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="http://www.smartcom.bg/"><img class="partners" alt="img" src="img/partner4.png" style="max-height: 8em !important;"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="http://www.cloudbalkan.com/"><img class="partners" alt="img" src="img/partner1.png" style="max-height: 9em !important;"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="https://360creative.bg/bg/"><img class="partners" alt="img" src="img/partner6.png" style="max-height: 9em !important;"/></a>
+                                </li>
+                                <li class="sponsor">
+                                    <a target="_blank" href="http://pirinspring.com/"><img class="partners" alt="img" src="img/partner3.png" style="max-height: 9em !important;"/></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-1">
+            <div class="map-container">
+                <iframe src="https://www.google.bg/maps/embed?pb=!1m18!1m12!1m3!1d2933.683880152507!2d23.371825315720965!3d42.66805392358737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85d643a3af15%3A0xcbc66ddbb54d08b3!2z0KHQvtGE0LjRjyDQotC10YUg0J_QsNGA0Lo!5e0!3m2!1sbg!2sbg!4v1517772632518"></iframe>
+            </div>
+        </section>
+    </div>
+</main>

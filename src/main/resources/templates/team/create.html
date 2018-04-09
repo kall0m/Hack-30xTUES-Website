@@ -1,0 +1,174 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 cover cover-8">
+            <div class="col-md-7 col-sm-5">
+                <div class="background-image-holder">
+                    <img alt="image" src="/img/official-background.jpg"/>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-7 bg--white text-center">
+                <div class="pos-vertical-center">
+                    <img class="logo" alt="HackTUES" src="/img/hack-tues-logo.png"/>
+                    <p class="lead">Създай отбор</p>
+                    <div class="text-left">
+                        <form id="regForm" th:action="@{/team/create}" method="post">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Име на отбор (на латиница):</label>
+                                            <i class="icon icon-People-onCloud"></i>
+                                            <input type="text" name="teamName" placeholder="Име на отбор" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-select">
+                                            <label>Участници:</label>
+                                            <select id="participants_count" name="participantsCount" required="required">
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="participant1">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл на капитан:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input id="user_email1" type="email" name="email1" placeholder="Имейл на капитан" th:value="${leader.email}" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row" id="participant2">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл на участник 2:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input id="user_email2" type="email" name="email2" placeholder="Имейл на участник 2" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="participant3">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл на участник 3:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input id="user_email3" type="email" name="email3" placeholder="Имейл на участник 3" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="participant4" style="display: none">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл на участник 4:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input id="user_email4" type="email" name="email4" placeholder="Имейл на участник 4"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="participant5" style="display: none">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл на участник 5:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input id="user_email5" type="email" name="email5" placeholder="Имейл на участник 5"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Технологии, които бихте използвали за проекта:</label>
+                                        <th:block th:each="technology : ${technologies}">
+                                            <div class="input-checkbox">
+                                                <div class="inner"></div>
+                                                <input type="checkbox" name="technologies" th:value="${technology.name}" th:text="${technology.name}"/>
+                                            </div>
+                                        </th:block>
+                                        <div class="text-area">
+                                            <label>Други:</label>
+                                            <textarea rows="2" name="otherTechnologies" placeholder="Моля, разделяйте отделните технологии със запетаи."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Телефон на капитан:</label>
+                                            <i class="icon icon-Phone"></i>
+                                            <input type="tel" name="phone" placeholder="Телефон на капитан" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Линк към GitHub Repository:</label>
+                                            <i class="icon icon-URL-Window"></i>
+                                            <input id="gitHubRepoUrl" type="text" name="gitHubRepoUrl" placeholder="Линк към GitHub Repository" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="want_teammates_div">
+                                    <div class="col-sm-12">
+                                        <div class="input-checkbox">
+                                            <div class="inner"></div>
+                                            <input type="checkbox" id="want_teammates" name="wantTeammates"/>
+                                        </div>
+                                        <span>Приемате ли още съотборници?</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button type="button" class="btn btn--primary vpe" id="nextBtn" onclick="nextPrev(1)">Продължи</button>
+                                    <br/>
+                                    <button type="button" class="btn bg--dark" id="prevBtn" onclick="nextPrev(-1)"><i class="icon-Back2"></i>Назад</button>
+                                </div>
+                            </div>
+
+                            <div style="text-align:center; margin-top:20px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

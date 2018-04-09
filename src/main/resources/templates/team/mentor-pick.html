@@ -1,0 +1,55 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 cover cover-8">
+            <div class="col-md-7 col-sm-5">
+                <div class="background-image-holder">
+                    <img alt="image" src="/img/official-background.jpg"/>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-7 bg--white text-center">
+                <div class="pos-vertical-center">
+                    <img class="logo" alt="HackTUES" src="/img/hack-tues-logo.png"/>
+                    <p class="lead">Избор на ментор</p>
+                    <div class="text-left" style="margin-top: 1.25em;">
+                        <div class="col-md-7 features__avatar text-center" style="float: none; display: block; margin-left: auto; margin-right: auto;">
+                            <img alt="pic" th:src="${mentor.imageSource}" style="width: 60%;"/>
+                        </div>
+
+                        <div class="col-md-5 col-sm-7 text-center" style="float: none; display: block; margin-left: auto; margin-right: auto;">
+                            <h5 th:text="${mentor.fullName}"></h5>
+                        </div>
+
+                        <form th:action="@{/team/pick/mentor/{id}(id=${mentor.id})}" method="post">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="text-center">
+                                        <p>Сигурен/на ли сте, че искате да изберете този ментор?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn--primary vpe" onClick="return checker();">Да</button>
+                                    <br/>
+                                    <a class="btn bg--dark" th:href="@{/mentors/{id}(id=${mentor.id})}" style="width: 100%; margin-top: 10px;">
+                                        <span class="btn__text">Не</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

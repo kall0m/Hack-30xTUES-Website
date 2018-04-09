@@ -1,0 +1,55 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-50  page-title page-title--animate">
+            <div class="container pos-vertical-center">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h1>Блогът на Hack 30xTUES</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="masonry masonry-blog">
+                        <div class="masonry__container masonry--animate masonry--active">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <th:block th:each="post : ${posts}">
+                                <div class="col-sm-12 masonry__item">
+                                    <a th:href="@{/blog/post/{id}(id=${post.id})}">
+                                        <div class="card card--horizontal card-7">
+                                            <div class="boxed bg--white">
+                                                <div class="card__title">
+                                                    <h4 th:text="${post.title}"></h4>
+                                                </div>
+                                                <th:block th:if="${post.content.length()} &gt; 135">
+                                                    <p th:text="${post.summary}"></p>
+                                                </th:block>
+                                                <th:block th:unless="${post.content.length()} &gt; 135">
+                                                    <p th:text="${post.content}"></p>
+                                                </th:block>
+                                                <hr/>
+                                                <div class="card__lower">
+                                                    <span class="h6" th:text="'Публикувано на ' + ${#dates.format(post.date, 'dd.MM.yyyy')} + ' от ' + ${post.author.fullName}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

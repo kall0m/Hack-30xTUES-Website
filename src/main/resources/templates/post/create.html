@@ -1,0 +1,61 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 cover cover-8">
+            <div class="col-md-7 col-sm-5">
+                <div class="background-image-holder">
+                    <img alt="image" src="/img/official-background.jpg"/>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-7 bg--white text-center">
+                <div class="pos-vertical-center">
+                    <img class="logo" alt="HackTUES" src="/img/hack-tues-logo.png"/>
+                    <p class="lead">Нова публикация</p>
+                    <div class="text-left">
+                        <form th:action="@{/blog/post/create}" method="post">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-with-icon">
+                                        <label>Заглавие:</label>
+                                        <i class="icon icon-Mail-2"></i>
+                                        <input type="text" name="title" placeholder="Заглавие" required="required"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="text-area">
+                                        <label>Съдържание:</label>
+                                        <textarea rows="6" name="content" required="required"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <a class="btn bg--dark vpe" th:href="@{/blog}" style="width: 40%">
+                                        <i class="icon icon-Back2"></i>
+                                        <span class="btn__text">Назад</span>
+                                    </a>
+                                    <button type="submit" class="btn btn--primary vpe" style="width: 40%" onClick="return checker();">Създай</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+</main>

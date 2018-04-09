@@ -1,0 +1,105 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <th:block th:if="${message}">
+                        <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                            <div class="boxed boxed--sm bg--dark">
+                                <span th:text="${message}"></span>
+                            </div>
+                            <div class="notification-close-cross notification-close"></div>
+                        </div>
+                    </th:block>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-User color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Име на участник: <th:block th:text="${user.fullName}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Email color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Имейл на участник: <th:block th:text="${user.email}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Student-Hat color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Клас: <th:block th:text="${user.schoolClass}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Cube-Molecule color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>
+                                    Технологии:
+                                    <th:block th:each="technology : ${technologies}">
+                                        <th:block th:if="${technology != technologies.get(technologies.size() - 1)}">
+                                            <span th:text="${technology.name} + ', '"></span>
+                                        </th:block>
+                                        <th:block th:unless="${technology != technologies.get(technologies.size() - 1)}">
+                                            <th:block th:if="${user.otherTechnologies}">
+                                                <span th:text="${technology.name} + ', '"></span>
+                                                <span th:text="${user.otherTechnologies}"></span>
+                                            </th:block>
+                                            <th:block th:unless="${user.otherTechnologies}">
+                                                <span th:text="${technology.name}"></span>
+                                            </th:block>
+                                        </th:block>
+                                    </th:block>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Fish-Food color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Предпочитания към храната:
+                                    <th:block th:switch="${user.diet}">
+                                        <span th:case="no-preferences">Нямам</span>
+                                        <span th:case="no-meat">Без месо</span>
+                                    </th:block>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-T-Shirt color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Размер на тениска: <th:block th:text="${user.tshirt}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

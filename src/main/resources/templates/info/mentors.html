@@ -1,0 +1,85 @@
+<main th:remove="tag">
+    <!--<div class="main-container">
+        <section class="imagebg height-90 parallax" data-overlay="6">
+            <div class="background-image-holder">
+                <img alt="pic" src="img/menotrs.jpg"/>
+            </div>
+            <div class="container pos-vertical-center">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h1>Hack 30xTUES търси своите ментори!</h1>
+                        <p class="lead">
+                            Ако искате да подкрепите най-мащабното издание на училищния хакатон в ТУЕС досега, прочетете нашия <a target="_blank" href="https://aztues.wildapricot.org/resources/Documents/Hack_30xTUES/Mentors_Guide_Hack30xTUES_open.pdf">Mentor's guide to Hack 30xTUES</a> и се регистрирайте на <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfBaS-4cdtaC_h3ZQaK6DGzkoTZKSHD4T66sTLTFv9gWl6zUw/viewform">следната форма</a> не по-късно от 5-ти март.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>-->
+
+    <div class="main-container">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <th:block th:if="${message}">
+                        <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                            <div class="boxed boxed--sm bg--dark">
+                                <span th:text="${message}"></span>
+                            </div>
+                            <div class="notification-close-cross notification-close"></div>
+                        </div>
+                    </th:block>
+
+                    <div class="col-sm-12 text-center">
+                        <div class="elements--title" style="margin-bottom: 6.5em;">
+                            <h2>Менторите на Hack 30xTUES</h2>
+                        </div>
+
+                        <div class="input-with-icon" style="margin-bottom: 3em;">
+                            <i class="icon icon-Magnifi-Glass2"></i>
+                            <input id="searchByTechnologies" type="text" onkeyup="searchMentorsByTechnologies()" placeholder="Търси по технологии..." title="Въведете технологии"/>
+                        </div>
+                    </div>
+
+                    <ul id="listOfMentors">
+                        <th:block th:each="mentor : ${mentors}">
+                            <li>
+                                <div id="mentor" class="col-md-4 col-sm-6">
+                                    <div class="card card-1 mentorBlock">
+                                        <div class="card__image">
+                                            <a th:href="@{/mentors/{id}(id=${mentor.id})}">
+                                                <img alt="pic" th:src="${mentor.imageSource}"/>
+                                            </a>
+                                        </div>
+
+                                        <div class="card__body boxed bg--white">
+                                            <div class="card__title">
+                                                <h4 th:text="${mentor.fullName}"></h4>
+                                            </div>
+
+                                            <th:block th:if="${mentor.company}">
+                                                <span style="text-overflow: ellipsis;
+                                                        display: inline-block;
+                                                        width: 100%;
+                                                        white-space: nowrap;
+                                                        overflow: hidden !important;">
+                                                    <em th:text="${mentor.company}"></em>
+                                                </span>
+                                            </th:block>
+
+                                            <p id="mentorTechnologies" style="text-overflow: ellipsis;
+                                                display: inline-block;
+                                                width: 100%;
+                                                white-space: nowrap;
+                                                overflow: hidden !important;" th:text="${mentor.technologies}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

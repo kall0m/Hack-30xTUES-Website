@@ -1,0 +1,86 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.12';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="blog-post">
+            <th:block th:if="${message}">
+                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                    <div class="boxed boxed--sm bg--dark">
+                        <span th:text="${message}"></span>
+                    </div>
+                    <div class="notification-close-cross notification-close"></div>
+                </div>
+            </th:block>
+
+            <div class="blog-post__title bg--secondary" style="background: none;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                            <h1 th:text="${post.title}"></h1>
+                            <div class="blog-post__author">
+                                <span class="h6">
+                                    <em th:text="${#dates.format(post.date, 'dd.MM.yyyy')}"></em>
+                                </span>
+                                <br/>
+                                <span>
+                                    <em>от </em>
+                                </span>
+                                <span class="h6" th:text="${post.author.fullName}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-justify">
+                <div class="row" style="margin: 0 1px;">
+                    <p class="col-sm-8 col-sm-offset-2" th:text="${post.content}" onload="return replaceURLWithHTMLLinks('Oiqwkoic qwoicjqw oijcwqoi jcwqoicj wqiojc wqioj iowqjoci qjw https://sites.google.com/site/lidhristova/.');"></p>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="blog-post__share">
+                            <h5 style="margin-bottom: 0.625em;">Харесайте и споделете</h5>
+                            <div class="fb-like" data-href="https://hacktues.com/blog/post/&#064;[id]" data-width="10" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                            <iframe th:src="@{'https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fhacktues.com%2Fblog%2Fpost%2F' + ${post.id} + '&amp;width=10&amp;layout=standard&amp;action=like&amp;size=large&amp;show_faces=true&amp;share=true&amp;height=10&amp;appId'}" width="10" height="10" style="border:none; overflow:hidden; min-height: 100px; text-align: center;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                        </div>
+
+                        <div>
+                            <a class="btn bg--dark" href="javascript:history.back()" style="margin-top: 20px;">
+                                <i class="icon-Back2"></i>
+                                <span class="btn__text">
+                                    Назад
+                                </span>
+                            </a>
+                        </div>
+
+                        <div>
+                            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="btn bg--primary-1" th:href="@{/blog/post/edit/{id}(id = ${post.id})}" style="margin-top: 10px;">
+                                    <i class="icon-Edit"></i>
+                                    <span class="btn__text">
+                                        Редактирай
+                                    </span>
+                                </a>
+                                <a class="btn bg--primary-2" th:href="@{/blog/post/delete/{id}(id = ${post.id})}" style="margin-top: 10px;">
+                                    <i class="icon-Delete-Window"></i>
+                                    <span class="btn__text">
+                                        Изтрий
+                                    </span>
+                                </a>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

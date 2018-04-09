@@ -1,0 +1,171 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <th:block th:if="${message}">
+                        <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                            <div class="boxed boxed--sm bg--dark">
+                                <span th:text="${message}"></span>
+                            </div>
+                            <div class="notification-close-cross notification-close"></div>
+                        </div>
+                    </th:block>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Note color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Име на отбор: <th:block th:text="${team.name}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-MaleFemale color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Брой участници: <th:block th:text="${team.users.size()}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Pilot color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Име на капитан: <th:block th:text="${team.leader.fullName}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Email color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Имейл на капитан: <th:block th:text="${team.leader.email}"></th:block></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <th:block th:each="teammate : ${team.users}">
+                        <div class="col-sm-6" th:if="${!teammate.isLeader()}">
+                            <div class="feature feature-3">
+                                <div class="feature__left">
+                                    <i class="icon icon-User color--primary"></i>
+                                </div>
+                                <div class="feature__right">
+                                    <h6>Име на участник: <th:block th:text="${teammate.fullName}"></th:block></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6" th:if="${!teammate.isLeader()}">
+                            <div class="feature feature-3">
+                                <div class="feature__left">
+                                    <i class="icon icon-Email color--primary"></i>
+                                </div>
+                                <div class="feature__right">
+                                    <h6>Имейл на участник: <th:block th:text="${teammate.email}"></th:block></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Cube-Molecule color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>
+                                    Технологии, които бихте използвали за проекта:
+                                    <th:block th:each="technology : ${technologies}">
+                                        <th:block th:if="${technology != technologies.get(technologies.size() - 1)}">
+                                            <span th:text="${technology.name} + ', '"></span>
+                                        </th:block>
+                                        <th:block th:unless="${technology != technologies.get(technologies.size() - 1)}">
+                                            <th:block th:if="${team.otherTechnologies}">
+                                                <span th:text="${technology.name} + ', '"></span>
+                                                <span th:text="${team.otherTechnologies}"></span>
+                                            </th:block>
+                                            <th:block th:unless="${team.otherTechnologies}">
+                                                <span th:text="${technology.name}"></span>
+                                            </th:block>
+                                        </th:block>
+                                    </th:block>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" th:if="${team.users.size()} &lt; 5 and ${user.isLeader()}">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Add-User color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <h6>Приемате ли още съотборници:
+                                    <th:block th:if="${team.getWantTeammates()}">
+                                        <span th:text="Да"></span>
+                                    </th:block>
+                                    <th:block th:unless="${team.getWantTeammates()}">
+                                        <span th:text="Не"></span>
+                                    </th:block>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="feature feature-3">
+                            <div class="feature__left">
+                                <i class="icon icon-Link color--primary"></i>
+                            </div>
+                            <div class="feature__right">
+                                <th:block th:if="${team.getGitHubRepoUrl().contains(';')}">
+                                    <h6 style="margin-bottom: 6px;">Линкове към GitHub Repository:</h6>
+                                    <h6 style="margin-bottom: 5px;" th:each="url : ${team.getGitHubRepoUrl().split(';')}">
+                                        <a target="_blank" th:href="${url}" th:text="${url}" style="text-decoration: underline;"></a>
+                                    </h6>
+                                </th:block>
+                                <th:block th:unless="${team.getGitHubRepoUrl().contains(';')}">
+                                    <h6>Линк към GitHub Repository: <br/> <a target="_blank" th:href="${team.getGitHubRepoUrl()}" th:text="${team.getGitHubRepoUrl()}" style="text-decoration: underline;"></a></h6>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+
+                    <th:block th:if="${team.mentor != null}">
+                        <div class="col-sm-6">
+                            <div class="feature feature-3">
+                                <div class="feature__left">
+                                    <i class="icon icon-Astronaut color--primary"></i>
+                                </div>
+                                <div class="feature__right">
+                                    <h6>Ментор: <a th:href="@{/mentors/{id}(id=${team.mentor.id})}" th:text="${team.mentor.fullName}" style="text-decoration: underline;"></a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+
+                    <!--<th:block th:if="${user.isLeader() and user.team.mentor != null}">
+                        <a class="btn bg-\-dark" th:href="@{/team/delete/mentor/{id}(id=${team.mentor.id})}" style="margin-bottom: 20px;">
+                            <span class="btn__text">
+                                Премахни ментор
+                            </span>
+                        </a>
+                    </th:block>-->
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

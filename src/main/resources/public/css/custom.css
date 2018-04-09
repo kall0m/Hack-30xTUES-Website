@@ -1,0 +1,133 @@
+/***************************
+Add your custom styles below
+****************************/
+
+.row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+.vc_custom_1420411947177 {
+    padding-top: 70px !important;
+    padding-right: 70px !important;
+    padding-bottom: 70px !important;
+    padding-left: 70px !important;
+}
+
+.column, .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+}
+
+.medium-12 {
+    width: 100%;
+}
+
+.clients.row {
+    border-top: 1px solid rgba(231, 231, 231, 0.6);
+    border-left: 1px solid rgba(231, 231, 231, 0.6);
+}
+
+.row.no-padding {
+    margin: auto;
+}
+
+.clients.row .client.columns {
+    padding: 0;
+    text-align: center;
+    border-right: 1px solid rgba(231, 231, 231, 0.6);
+    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    height: 150px;
+    line-height: 149px;
+}
+
+.thb-five {
+    width: 20%;
+}
+
+.column, .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+}
+
+.clients.row .client.columns img {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity: 0.4;
+}
+
+.partners-1 .slider img {
+    opacity: 1;
+    max-height: 12em;
+}
+
+.partners-1 .slider {
+    margin: 0 -8%;
+}
+
+.owl-item {
+    margin: 0;
+}
+
+section.space--sm {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.alpha {
+
+}
+
+.beta {
+
+}
+
+.gamma {
+
+}
+
+.partners {
+
+}
+
+.mentorBlock:hover {
+    border-style: solid;
+    border-color: #42b4bb;
+    border-width: 4px;
+}
+
+.teamBlock:hover {
+    background: #42b4bb !important;
+}
+
+.winnerBlock:hover {
+    background: #4B3F72 !important;
+}
+
+.winnerBlock:hover i, .winnerBlock:hover span {
+    color: #FFC857 !important;
+}
+
+.winnerBlock:hover h4, .winnerBlock:hover h5 {
+    color: white;
+}
+
+.org {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.teamBlockBoss:hover
+.org{
+    color: white;
+    margin: 0 10px;
+    background-image: url("/img/official-background.jpg");
+}

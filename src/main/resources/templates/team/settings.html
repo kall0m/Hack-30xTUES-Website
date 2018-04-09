@@ -1,0 +1,107 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 cover cover-8">
+            <div class="col-md-7 col-sm-5">
+                <div class="background-image-holder">
+                    <img alt="image" src="/img/official-background.jpg"/>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-7 bg--white text-center">
+                <div class="pos-vertical-center">
+                    <img class="logo" alt="HackTUES" src="/img/hack-tues-logo.png"/>
+                    <p class="lead">Настройки отбор</p>
+                    <div class="text-left">
+                        <form id="regForm" th:action="@{/team/settings}" method="post">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Име на отбор (на латиница):</label>
+                                            <i class="icon icon-People-onCloud"></i>
+                                            <input type="text" name="teamName" placeholder="Име на отбор" th:value="${team.name}" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Линк към GitHub Repository:</label>
+                                            <i class="icon icon-URL-Window"></i>
+                                            <input id="gitHubRepoUrl" type="text" name="gitHubRepoUrl" placeholder="Линк към GitHub Repository" th:value="${team.gitHubRepoUrl}" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="want_teammates_div" th:if="${team.users.size()} &lt; 5">
+                                    <div class="col-sm-12">
+                                        <th:block th:if="${team.wantTeammates}">
+                                            <div class="input-checkbox checked">
+                                                <div class="inner"></div>
+                                                <input type="checkbox" th:checked="${team.wantTeammates}" name="wantTeammates"/>
+                                            </div>
+                                        </th:block>
+                                        <th:block th:unless="${team.wantTeammates}">
+                                            <div class="input-checkbox">
+                                                <div class="inner"></div>
+                                                <input type="checkbox" th:checked="${team.wantTeammates}" name="wantTeammates"/>
+                                            </div>
+                                        </th:block>
+                                        <span>Приемате ли още съотборници?</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Технологии:</label>
+                                        <th:block th:each="technology : ${technologies}">
+                                            <th:block th:if="${team.technologies.contains(technology)}">
+                                                <div class="input-checkbox checked">
+                                                    <div class="inner"></div>
+                                                    <input type="checkbox" name="technologies" th:value="${technology.name}" th:text="${technology.name}" checked="checked"/>
+                                                </div>
+                                            </th:block>
+                                            <th:block th:unless="${team.technologies.contains(technology)}">
+                                                <div class="input-checkbox">
+                                                    <div class="inner"></div>
+                                                    <input type="checkbox" name="technologies" th:value="${technology.name}" th:text="${technology.name}"/>
+                                                </div>
+                                            </th:block>
+                                        </th:block>
+                                        <div class="text-area">
+                                            <label>Други:</label>
+                                            <textarea rows="2" name="otherTechnologies" placeholder="Моля, разделяйте отделните технологии със запетаи." th:value="${team.otherTechnologies}" th:text="${team.otherTechnologies}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button type="button" class="btn bg--dark" id="prevBtn" onclick="nextPrev(-1)"><i class="icon-Back2"></i>Назад</button>
+                                    <button type="button" class="btn btn--primary vpe " id="nextBtnSettings" onclick="nextPrev(1)">Продължи</button>
+                                </div>
+                            </div>
+
+                            <div style="text-align:center; margin-top:20px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

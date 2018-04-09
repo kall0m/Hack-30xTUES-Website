@@ -1,0 +1,162 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-100 cover cover-8">
+            <div class="col-md-7 col-sm-5">
+                <div class="background-image-holder">
+                    <img alt="image" src="/img/official-background.jpg"/>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-7 bg--white text-center">
+                <div class="pos-vertical-center">
+                    <img class="logo" alt="HackTUES" src="/img/hack-tues-logo.png"/>
+                    <p class="lead">Регистрация</p>
+                    <div class="text-left">
+                        <form id="regForm" th:action="@{/register}" method="post">
+                            <th:block th:if="${message}">
+                                <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                    <div class="boxed boxed--sm bg--dark">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div class="notification-close-cross notification-close"></div>
+                                </div>
+                            </th:block>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Имейл:</label>
+                                            <i class="icon icon-Mail-2"></i>
+                                            <input type="email" name="email" placeholder="Имейл" oninput="this.className = ''" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Име и фамилия:</label>
+                                            <i class="icon icon-Male-2"></i>
+                                            <input type="text" name="fullName" placeholder="Име и фамилия" oninput="this.className = ''" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Парола:</label>
+                                            <i class="icon icon-Security-Check"></i>
+                                            <input type="password" name="password" placeholder="••••••••" oninput="this.className = ''" required="required"/>
+                                            <span style="color: #42b4bb; font-size: 12px;">* моля, изберете надеждна парола</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-with-icon">
+                                            <label>Потвърди парола:</label>
+                                            <i class="icon icon-Security-Check"></i>
+                                            <input type="password" name="confirmPassword" placeholder="••••••••" oninput="this.className = ''" required="required"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Технологии:</label>
+                                        <th:block th:each="technology : ${technologies}">
+                                            <div class="input-checkbox">
+                                                <div class="inner"></div>
+                                                <input type="checkbox" name="technologies" th:value="${technology.name}" th:text="${technology.name}"/>
+                                            </div>
+                                        </th:block>
+                                        <div class="text-area">
+                                            <br/>
+                                            <label>Други:</label>
+                                            <textarea rows="2" name="otherTechnologies" placeholder="Моля, разделяйте отделните технологии със запетаи."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-select">
+                                            <label>Клас:</label>
+                                            <select name="schoolClass" required="required">
+                                                <option value="8А">8А</option>
+                                                <option value="8Б">8Б</option>
+                                                <option value="8В">8В</option>
+                                                <option value="8Г">8Г</option>
+                                                <option value="9А">9А</option>
+                                                <option value="9Б">9Б</option>
+                                                <option value="9В">9В</option>
+                                                <option value="9Г">9Г</option>
+                                                <option value="10А">10А</option>
+                                                <option value="10Б">10Б</option>
+                                                <option value="10В">10В</option>
+                                                <option value="10Г">10Г</option>
+                                                <option value="11А">11А</option>
+                                                <option value="11Б">11Б</option>
+                                                <option value="11В">11В</option>
+                                                <option value="11Г">11Г</option>
+                                                <option value="12А">12А</option>
+                                                <option value="12Б">12Б</option>
+                                                <option value="12В">12В</option>
+                                                <option value="12Г">12Г</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-select">
+                                            <label>Предпочитания към храната:</label>
+                                            <select name="diet" required="required">
+                                                <option value="no-preferences">Нямам</option>
+                                                <option value="no-meat">Без месо</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-select">
+                                            <label>Размер на тениска:</label>
+                                            <select name="tshirt" required="required">
+                                                <option value="XS">XS</option>
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                                <option value="XL">XL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button type="button" class="btn bg--dark" id="prevBtn" onclick="nextPrev(-1)"><i class="icon-Back2"></i>Назад</button>
+                                    <button type="button" class="btn btn--primary vpe" id="nextBtn" onclick="nextPrev(1)">Продължи</button>
+                                </div>
+                            </div>
+
+                            <div style="text-align:center; margin-top:20px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

@@ -1,0 +1,72 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="height-20">
+            <div class="container pos-vertical-center">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Програма на Hack 30xTUES</h2>
+                        <span>
+                            <em>15-18 март, 2018 г.</em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg--secondary text-justify" style="padding-top: 4em;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <th:block th:if="${message}">
+                            <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                <div class="boxed boxed--sm bg--dark">
+                                    <span th:text="${message}"></span>
+                                </div>
+                                <div class="notification-close-cross notification-close"></div>
+                            </div>
+                        </th:block>
+
+                        <h4 style="text-decoration: line-through;">15 март, четвъртък</h4>
+
+                        <p style="text-decoration: line-through;">17:00 - 18:45 - Регистрация (Лабораторен комплекс - фоайе)</p>
+                        <p style="text-decoration: line-through;">19:00 - 20:00 - Официално откриване (Фоайе)</p>
+                        <p style="text-decoration: line-through;">20:00 - 21:00 - Отборите се оттеглят по залите да обсъдят план за проекта си (Работни зали, ет. 2)</p>
+
+                        <h4 style="text-decoration: line-through;">16 март, петък</h4>
+
+                        <p style="text-decoration: line-through;">08:00 - 12:00 - Отборна работа по проектите и запознаване с менторите (Работни зали, ет. 2)</p>
+                        <p style="text-decoration: line-through;">11:30 - 13:30 - Обяд (Ресторант Raffy - Park)</p>
+                        <p style="text-decoration: line-through;">13:30 - 20:00 - Отборна работа по проектите (Работни зали, ет. 2)</p>
+
+                        <h4 style="text-decoration: line-through;">17 март, събота</h4>
+
+                        <p style="text-decoration: line-through;">08:00 - 11:30 - Работа по проектите (Работни зали, ет. 2)</p>
+                        <p style="text-decoration: line-through;">11:30 - 13:30 - Обяд (Ресторант Raffy - Park)</p>
+                        <p style="text-decoration: line-through;">08:00 - 20:00 - Работа по проектите и консултация с менторите (Работни зали, ет. 2)</p>
+
+                        <h4>18 март, неделя</h4>
+
+                        <p>08:00 - 09:00 - Довършване на работата по проектите (Работни зали, ет. 2)</p>
+                        <p>09:00 - Краен срок за качване в GitHub на финалната версия на проекта</p>
+
+                        <p>10:00 - 11:15 - Полуфинали част 1 (Фоайе, Зали 5 и 125)</p>
+                        <p>11:15 - 11:30 - Кратка почивка</p>
+                        <p>11:30 - 12:45 - Полуфинали част 2 (Фоайе, Зали 5 и 125)</p>
+                        <p>12:45 - 13:00 - Кратка почивка</p>
+                        <p>13:00 - 14:30 - Полуфинали част 3 (Фоайе, Зали 5 и 125)</p>
+
+                        <p>14:30 - 15:15 - Обяд (Лабораторен комплекс)</p>
+                        <p>15:15 - Обявяване на финалистите (Фоайе)</p>
+                        <p>15:30 - 16:45 -  Финали част 1 (Фоайе)</p>
+                        <p>16:45 - 17:00 - Кратка почивка</p>
+                        <p>17:00 - 18:00 -  Финали част 2 (Фоайе)</p>
+                        <p>18:00 - 19:00 - Почивка (заседание на журито за излъчване на финалистите)</p>
+
+                        <p>19:00 - 19:45 - Церемония по награждаване (Фоайе)</p>
+                        <p>19:45 - 20:30 - Коктейл (Фоайе)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

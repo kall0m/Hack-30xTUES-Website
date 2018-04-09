@@ -1,0 +1,94 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="features features-4">
+            <div class="container">
+                <div class="row text-center">
+                    <th:block th:if="${message}">
+                        <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                            <div class="boxed boxed--sm bg--dark">
+                                <span th:text="${message}"></span>
+                            </div>
+                            <div class="notification-close-cross notification-close"></div>
+                        </div>
+                    </th:block>
+
+                    <div class="col-md-7 features__avatar">
+                        <img alt="pic" th:src="${mentor.imageSource}"/>
+                    </div>
+
+                    <div class="col-md-5 col-sm-7 text-justify">
+                        <h3>Име: <th:block th:text="${mentor.fullName}"></th:block></h3>
+
+                        <th:block th:if="${!mentor.school.isEmpty()}">
+                            <h5>(ТУЕС'<th:block th:text="${mentor.school}"></th:block>)</h5>
+                        </th:block>
+
+                        <th:block th:if="${!mentor.company.isEmpty()}">
+                            <h5>Работно място: <th:block th:text="${mentor.company}"></th:block></h5>
+                        </th:block>
+
+                        <th:block th:if="${mentor.position.equals(mentor.information)}">
+                            <th:block th:if="${!mentor.position.isEmpty()}">
+                                <h5>Позиция: <th:block th:text="${mentor.position}"></th:block></h5>
+                            </th:block>
+                        </th:block>
+                        <th:block th:unless="${mentor.position.equals(mentor.information)}">
+                            <th:block th:if="${!mentor.position.isEmpty()}">
+                                <h5>Позиция: <th:block th:text="${mentor.position}"></th:block></h5>
+                            </th:block>
+
+                            <th:block th:if="${!mentor.information.isEmpty()}">
+                                <h5>Опит: <th:block th:text="${mentor.information}"></th:block></h5>
+                            </th:block>
+                        </th:block>
+
+                        <th:block th:if="${!mentor.technologies.isEmpty()}">
+                            <h5>Технологии: <th:block th:text="${mentor.technologies}"></th:block></h5>
+                        </th:block>
+
+                        <th:block th:if="${!mentor.hobbies.isEmpty()}">
+                            <h5>Интереси: <th:block th:text="${mentor.hobbies}"></th:block></h5>
+                        </th:block>
+
+                        <th:block th:if="${!mentor.attendance.isEmpty()}">
+                            <h5 style="white-space: pre-line;">Присъствие: <br/> <th:block th:text="${mentor.attendance}"></th:block></h5>
+                        </th:block>
+
+                        <th:block th:if="${mentor.teamCount == 1}">
+                            <th:block th:if="${mentor.getTeamAt(0)}">
+                                <h5>Текущи отбори: <a th:href="@{/teams/{id}(id=${mentor.getTeamAt(0).id})}" th:text="${mentor.getTeamAt(0).name}" style="text-decoration: underline;"></a></h5>
+                            </th:block>
+                        </th:block>
+
+                        <th:block th:if="${mentor.teamCount == 0}">
+                            <th:block th:if="${mentor.getTeamAt(1)}">
+                                <h5>Текущи отбори: <a th:href="@{/teams/{id}(id=${mentor.getTeamAt(0).id})}" th:text="${mentor.getTeamAt(0).name}" style="text-decoration: underline;"></a>,
+                                    <a th:href="@{/teams/{id}(id=${mentor.getTeamAt(1).id})}" th:text="${mentor.getTeamAt(1).name}" style="text-decoration: underline;"></a>
+                                </h5>
+                            </th:block>
+                        </th:block>
+                    </div>
+                </div>
+
+                <div class="text-left">
+                    <a id="mentorsBack" class="btn bg--dark" href="javascript:history.back()" style="margin-bottom: 20px;">
+                        <i class="icon-Back2"></i>
+                        <span class="btn__text">
+                                Назад
+                        </span>
+                    </a>
+
+                    <!--<th:block sec:authorize="isAuthenticated()">
+                        <th:block th:if="${user.team != null and user.isLeader() and user.team.mentor == null and mentor.teamCount > 0}">
+                            <a class="btn bg-\-dark text-left" th:href="@{/team/pick/mentor/{id}(id=${mentor.id})}" style="margin-bottom: 20px;">
+                                <span class="btn__text">
+                                    Избери ментор
+                                </span>
+                            </a>
+                        </th:block>
+                    </th:block>-->
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

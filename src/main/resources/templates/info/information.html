@@ -1,0 +1,268 @@
+<main th:remove="tag">
+    <div class="main-container">
+        <section class="imagebg height-90 parallax" data-overlay="6">
+            <div class="background-image-holder">
+                <img alt="pic" th:src="@{/img/official-background.jpg}"/>
+            </div>
+            <div class="container pos-vertical-center text-justify">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <th:block th:if="${message}">
+                            <div id="message" class="notification pos-right pos-top col-sm-6 col-md-4 col-xs-12 growl-notice notification--reveal" data-animation="from-right" data-notification-link="growl" style="top: 40px;">
+                                <div class="boxed boxed--sm bg--dark">
+                                    <span th:text="${message}"></span>
+                                </div>
+                                <div class="notification-close-cross notification-close"></div>
+                            </div>
+                        </th:block>
+
+                        <div class="lead">
+                            <p>Hack TUES е хакатон, организиран от ученици за ученици. Превърнал се в традиция за ТУЕС, той дава възможност на учениците както да усъвършенстват уменията си по програмиране, така и да насочат мисленето си в създаването на полезен софтуер. Комуникационният опит и работата в екип допринасят за бъдещото бързодействие и ефикасност при решаването на проблеми и справянето в различни ситуации, където се изисква подготвеност и решителност.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wide-grid masonry">
+            <div class="masonry__container masonry--animate masonry--active">
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-1.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Координатор</h6>
+                                <h5>Карина Козарова</h5>
+                                <a href="mailto:karinakozarova1303@gmail.com" style="color: white;">karinakozarova1303@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/karinakkozarova">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.instagram.com/karinakozarova/">
+                                        <i class="socicon-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://github.com/karinakozarova">
+                                        <i class="socicon-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-2.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>PR / Комуникации</h6>
+                                <h5>Маргарита Маринова</h5>
+                                <a href="mailto:magi.marinowax@gmail.com" style="color: white;">magi.marinowax@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/little.mermaid.inc">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.instagram.com/magi_marinowa/">
+                                        <i class="socicon-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-3.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>ИТ екип</h6>
+                                <h5>Калоян Маджунов</h5>
+                                <a href="mailto:k.madjunov@gmail.com" style="color: white;">k.madjunov@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/kaloyan.madjunov">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.instagram.com/kaloyanmad/">
+                                        <i class="socicon-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://github.com/kall0m">
+                                        <i class="socicon-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-4.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Дизайнер / ИТ съпорт</h6>
+                                <h5>Мария Стоянова</h5>
+                                <a href="mailto:mstoanova0@gmail.com" style="color: white;">mstoanova0@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100005142376922">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-6.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Спонсори / ИТ съпорт</h6>
+                                <h5>Антонио Милев</h5>
+                                <a href="mailto:antoniomilev123@gmail.com" style="color: white;">antoniomilev123@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/antonio.milev.9">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.twitch.tv/toniuyt">
+                                        <i class="socicon-twitch"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCR7GWojw1wslFrfh2Bu9_uQ">
+                                        <i class="socicon-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-5.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Логистика / финанси</h6>
+                                <h5>Мария Белева</h5>
+                                <a href="mailto:mimibelev@gmail.com" style="color: white;">mimibelev@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/maria.beleva.18">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-8.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Спонсори / финанси</h6>
+                                <h5>Тодор Димитров</h5>
+                                <a href="mailto:todor.domitrov2000@gmail.com" style="color: white;">todor.domitrov2000@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/todor.dimitrov.357284">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://github.com/todorakisa">
+                                        <i class="socicon-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-7.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Логистика</h6>
+                                <h5>Велислав Йотов</h5>
+                                <a href="mailto:slaviy999@gmail.com" style="color: white;">slaviy999@gmail.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100006813215926">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-6 masonry__item col-md-3">
+                    <div class="hover-element member member-2" data-title-position="center,center">
+                        <div class="hover-element__initial">
+                            <img alt="Pic" src="/img/avatar-team-9.jpg"/>
+                        </div>
+                        <div class="hover-element__reveal" data-overlay="9">
+                            <div class="boxed">
+                                <h6>Ментор на екипа</h6>
+                                <h5>Димитър Николов</h5>
+                                <a href="mailto:dimitar@doonloo.com" style="color: white;">dimitar@doonloo.com</a>
+                            </div>
+                            <ul class="social-list pos-absolute pos-bottom">
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/dknikolov">
+                                        <i class="socicon-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
